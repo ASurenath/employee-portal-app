@@ -1,0 +1,14 @@
+.box{
+    width: min(800px,98vw);
+    min-height: 70vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.row{
+    background-color:rgb(230, 220, 205);
+    padding: 20px;
+    border-radius: 20px;
+}

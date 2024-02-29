@@ -1,0 +1,19 @@
+<div *ngIf="!editAdminStatus" class="text-center d-flex flex-column align-items-center">
+<img class="img-fluid" [src]="profilePic" alt="profile">
+<button (click)="editAdminBtn()" class="btn btn-link">Edit admin details</button>
+</div>
+<div *ngIf="editAdminStatus" class="text-center d-flex flex-column align-items-center">
+<h2>
+    Admin Details   
+</h2>
+<label>
+    <input type="file" (change)="getFile($event)" style="display: none;"/>
+    <img [src]="profilePic" class="img-fluid btn" alt="">
+</label>
+<input type="text" name="adminName" [(ngModel)]="adminDetails.name" placeholder="Admin name" class="form-control mb-2" id=""  />
+<input type="password" name="adminPassword" [(ngModel)]="adminDetails.password" placeholder="Password" class="form-control mb-3" id="" />
+<div class="d-flex justify-content-evenly w-100">
+    <button (click)="editAdminBtn()" class="btn btn-warning">Cancel</button>
+    <button (click)="updateAdmin()" class="btn btn-success">Update</button>
+</div>
+</div>

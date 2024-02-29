@@ -1,0 +1,26 @@
+<div class="box">
+    <div class="row py-5">
+        <div class="col-lg-6">
+            <img src="https://mmmcollegeara.sonecyber.co.in/frontend/images/login.png" alt="login-image"
+            class="img-fluid"/>
+        </div>
+        <div class="col-lg-6 text-center">
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <h2>Login Form</h2>
+                <div class="form-floating mt-3 " >
+                    <input type="email" name="email" [(ngModel)]="email" class="form-control" id="floatingInput" placeholder="name@example.com" required email #userEmailInput="ngModel" />
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <p *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger">Invalid email</p>
+                  <div class="form-floating mt-3">
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control" id="floatingPassword" placeholder="Password" required pattern="[a-zA-Z0-9]*" minlength=3 #userPasswordInput="ngModel"/>
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <p class="text-danger" *ngIf="userPasswordInput.invalid && userPasswordInput.touched">Invalid password</p>
+                  <button type="submit" [disabled]="loginForm.invalid&&loginForm.touched" class="btn btn-success m-4">Login</button>
+            </form>
+            <!-- <p>{{email}}</p>
+            <p>{{password}}</p> -->
+        </div>
+    </div>
+</div>

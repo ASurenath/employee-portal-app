@@ -1,0 +1,37 @@
+<div class="row" style="min-height: 88vh;">
+    <div *ngIf="sideBarStatus" class="col-lg-2 bg-dark d-flex flex-lg-column align-items-center jusify-content-center">
+        <a routerLink="/dashboard">
+            <h3 class="text-center p-lg-4 px-2">Home</h3>
+        </a>
+        <a routerLink="/users">
+            <h3 class="text-center p-lg-4 px-2">Users</h3>
+        </a>
+        <button (click)="logout()" class="btn btn-link">
+            <h3 class="text-center p-lg-4 px-2">Logout</h3>
+        </button>
+    </div>
+    <div [class]="mainColumnClass" style="min-height: 70vh;">
+        <div class="row m-2">
+            <div class="col-lg-8">
+                <div class="banner p-5 m-2 rounded shadow">
+                    <h1><i (click)="menuBtnClick()" class="fa-solid fa-bars btn fs-1"></i> Welcome {{adminName}}!</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 p-3">
+                        <div class="rounded shadow p-3"><app-calendar></app-calendar></div>
+                    </div>
+                    
+                    <div class="col-lg-6 p-3">
+                        <div class="rounded shadow p-3"><app-chart></app-chart></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 p-2">
+                <div class="rounded shadow p-3">
+                    <app-update-admin (onAdminChange)="updateAdminName($event)"></app-update-admin>
+                </div>
+<div class="banner p-5 my-2 rounded shadow"> <h2 > <i class="fa-solid fa-users"></i> Employees:&nbsp;{{userCount}}</h2></div>
+            </div>
+        </div>
+    </div>
+</div>

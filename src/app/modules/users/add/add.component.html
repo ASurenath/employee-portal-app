@@ -1,0 +1,51 @@
+<div class="row" style="min-height: 88vh;">
+    <div class="col-lg-2 bg-dark d-flex flex-lg-column align-items-center jusify-content-center">
+        <a routerLink="/dashboard">
+            <h3 class="text-center p-lg-4 px-2">Home</h3>
+        </a>
+        <a routerLink="/users">
+            <h3 class="text-center p-lg-4 px-2">Users</h3>
+        </a>
+    </div>
+    <div class="col-lg-10 d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+        <h2>Add new user details!</h2>
+        <div class="card w-50 p-5">
+            <form #loginForm="ngForm" action="">
+                <div class="form-floating mb-3">
+                    <input name="empId" [(ngModel)]="user.empId" type="text" class="form-control" id="empId"
+                        placeholder="Employee ID"  required pattern="[a-zA-Z0-9]*" #empId="ngModel" />
+                    <label for="EmpId">Employee ID</label>
+                </div>
+                <p class="text-danger" *ngIf="empId.invalid && empId.touched"> Invalid emloyee ID</p>
+                <div class="form-floating mb-3">
+                    <input name="uname" [(ngModel)]="user.name" type="text" class="form-control" id="uname"
+                        placeholder="Username"  required pattern="[a-zA-Z ]*" #uname="ngModel" />
+                    <label for="uname">Username</label>
+                </div>
+                <p class="text-danger" *ngIf="uname.invalid && uname.touched"> Invalid username</p>
+
+                <div class="form-floating mb-3">
+                    <input name="email" [(ngModel)]="user.email" type="email" class="form-control" id="floatingEmail"
+                        placeholder="Email" required email #email="ngModel" />
+                    <label for="floatingEmail">Email</label>
+                </div>
+                <p class="text-danger" *ngIf="email.invalid && email.touched"> Invalid email</p>
+
+                <div class="form-floating mb-5">
+                    <select name="status" [(ngModel)]="user.status" id="status" class="form-control" required #status="ngModel">
+                        <option disabled selected hidden value=""></option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                    <label for="status">Status</label>
+                </div>
+                <p class="text-danger" *ngIf="status.invalid && status.touched"> Invalid status</p>
+                <div class="d-flex justify-content-evenly">
+                    <button (click)="cancel()" class="btn btn-warning">Cancel</button>
+                    <button (click)="addUser()" [disabled]="loginForm.invalid&&loginForm.touched" class="btn btn-success">Save</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
